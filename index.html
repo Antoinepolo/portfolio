@@ -14,12 +14,12 @@
                 extend: {
                     colors: {
                         cyber: {
-                            dark: '#0a0d14',
-                            card: '#111622',
-                            border: '#1e293b',
-                            neon: '#10b981', // Emerald neon
-                            cyan: '#06b6d4', // Cyber cyan
-                            purple: '#a855f7', // Cyber purple
+                            dark: '#0a0e17',
+                            card: '#111827',
+                            border: '#1f2937',
+                            neon: '#00ff9d',
+                            cyan: '#00e5ff',
+                            purple: '#a855f7',
                             accent: '#3b82f6',
                         }
                     },
@@ -43,7 +43,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #080b11;
+            background-color: #0a0e17;
             color: #e2e8f0;
             overflow-x: hidden;
         }
@@ -52,58 +52,37 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Scanline Overlay */
-        .scanline {
-            background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,0),
-                rgba(255,255,255,0) 50%,
-                rgba(0, 0, 0, 0.3) 50%,
-                rgba(0, 0, 0, 0.3)
-            );
-            background-size: 100% 4px;
-        }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0a0d14;
+            background: #0a0e17;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1e293b;
+            background: #1f2937;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #10b981;
+            background: #00ff9d;
         }
 
         /* Cyber Glows */
         .glow-neon {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.15);
         }
         .glow-cyan {
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
-        }
-        .glow-purple {
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
-        }
-        .text-glow-neon {
-            text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-        }
-        .text-glow-cyan {
-            text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.15);
         }
 
         /* Glassmorphism */
         .glass-panel {
-            background: rgba(17, 22, 34, 0.75);
+            background: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .glass-panel:hover {
-            border-color: rgba(16, 185, 129, 0.3);
+            border-color: rgba(0, 255, 157, 0.3);
         }
 
         /* Cursor blinking */
@@ -128,58 +107,56 @@
         }
     </style>
 </head>
-<body class="relative min-h-screen text-slate-200 antialiased selection:bg-emerald-500 selection:text-black">
+<body class="relative min-h-screen text-slate-200 antialiased selection:bg-emerald-400 selection:text-black">
 
-    <!-- Background Matrix FX -->
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- Header / Navbar -->
     <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             
             <!-- Logo / Status -->
             <a href="#hero" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-lg bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center font-mono text-emerald-400 font-bold group-hover:scale-105 transition-transform">
+                <div class="w-9 h-9 rounded-lg bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center font-mono text-[#00ff9d] font-bold group-hover:scale-105 transition-transform">
                     &gt;_
                 </div>
                 <div>
                     <div class="font-mono text-xs text-slate-400 flex items-center gap-2">
                         <span>antoine@henallux:~$</span>
-                        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping mr-1"></span>
-                            OPEN TO WORK
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-[#00ff9d] border border-emerald-500/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#00ff9d] animate-ping mr-1"></span>
+                            BAC 3 CYBER
                         </span>
                     </div>
-                    <span class="text-sm font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">Antoine Polo</span>
+                    <span class="text-sm font-bold tracking-tight text-white group-hover:text-[#00ff9d] transition-colors">Antoine Polo</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-6 font-mono text-xs">
-                <a href="#about" class="text-slate-400 hover:text-emerald-400 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="text-emerald-500">01.</span> Whoami
+                <a href="#about" class="text-slate-400 hover:text-[#00ff9d] transition-colors py-1 flex items-center gap-1.5">
+                    <span class="text-[#00ff9d]">01.</span> Whoami
                 </a>
-                <a href="#skills" class="text-slate-400 hover:text-emerald-400 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="text-emerald-500">02.</span> Skills
+                <a href="#skills" class="text-slate-400 hover:text-[#00ff9d] transition-colors py-1 flex items-center gap-1.5">
+                    <span class="text-[#00ff9d]">02.</span> Skills
                 </a>
-                <a href="#experience" class="text-slate-400 hover:text-emerald-400 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="text-emerald-500">03.</span> Parcours
+                <a href="#experience" class="text-slate-400 hover:text-[#00ff9d] transition-colors py-1 flex items-center gap-1.5">
+                    <span class="text-[#00ff9d]">03.</span> Parcours
                 </a>
-                <a href="#projects" class="text-slate-400 hover:text-emerald-400 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="text-emerald-500">04.</span> Projets
+                <a href="#projects" class="text-slate-400 hover:text-[#00ff9d] transition-colors py-1 flex items-center gap-1.5">
+                    <span class="text-[#00ff9d]">04.</span> Projets
                 </a>
-                <a href="#terminal-section" class="text-slate-400 hover:text-emerald-400 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="text-emerald-500">05.</span> Terminal
+                <a href="#terminal-section" class="text-slate-400 hover:text-[#00ff9d] transition-colors py-1 flex items-center gap-1.5">
+                    <span class="text-[#00ff9d]">05.</span> Terminal
                 </a>
-                <a href="#contact" class="text-slate-400 hover:text-emerald-400 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="text-emerald-500">06.</span> Contact
+                <a href="#contact" class="text-slate-400 hover:text-[#00ff9d] transition-colors py-1 flex items-center gap-1.5">
+                    <span class="text-[#00ff9d]">06.</span> Contact
                 </a>
             </nav>
 
             <!-- Actions Right -->
             <div class="flex items-center gap-3">
-                <a href="#terminal-section" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-xs font-mono text-emerald-400 transition-all hover:border-emerald-500/50">
-                    <i class="fa-solid me-1 fa-terminal"></i> CLI Shell
+                <a href="#terminal-section" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-xs font-mono text-[#00ff9d] transition-all hover:border-emerald-500/50">
+                    <i class="fa-solid fa-terminal"></i> CLI Shell
                 </a>
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars text-lg"></i>
@@ -188,83 +165,76 @@
         </div>
 
         <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-cyber-dark/95 backdrop-blur-lg px-4 pt-3 pb-6 font-mono text-sm space-y-3">
-            <a href="#about" class="block text-slate-300 hover:text-emerald-400 py-1"><span class="text-emerald-500">01.</span> Whoami</a>
-            <a href="#skills" class="block text-slate-300 hover:text-emerald-400 py-1"><span class="text-emerald-500">02.</span> Skills Matrix</a>
-            <a href="#experience" class="block text-slate-300 hover:text-emerald-400 py-1"><span class="text-emerald-500">03.</span> Parcours</a>
-            <a href="#projects" class="block text-slate-300 hover:text-emerald-400 py-1"><span class="text-emerald-500">04.</span> Projets</a>
-            <a href="#terminal-section" class="block text-slate-300 hover:text-emerald-400 py-1"><span class="text-emerald-500">05.</span> Terminal CLI</a>
-            <a href="#contact" class="block text-slate-300 hover:text-emerald-400 py-1"><span class="text-emerald-500">06.</span> Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-[#0a0e17]/95 backdrop-blur-lg px-4 pt-3 pb-6 font-mono text-sm space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-[#00ff9d] py-1"><span class="text-[#00ff9d]">01.</span> Whoami</a>
+            <a href="#skills" class="block text-slate-300 hover:text-[#00ff9d] py-1"><span class="text-[#00ff9d]">02.</span> Skills Matrix</a>
+            <a href="#experience" class="block text-slate-300 hover:text-[#00ff9d] py-1"><span class="text-[#00ff9d]">03.</span> Parcours</a>
+            <a href="#projects" class="block text-slate-300 hover:text-[#00ff9d] py-1"><span class="text-[#00ff9d]">04.</span> Projets</a>
+            <a href="#terminal-section" class="block text-slate-300 hover:text-[#00ff9d] py-1"><span class="text-[#00ff9d]">05.</span> Terminal CLI</a>
+            <a href="#contact" class="block text-slate-300 hover:text-[#00ff9d] py-1"><span class="text-[#00ff9d]">06.</span> Contact</a>
         </div>
     </header>
 
     <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pt-8 pb-16">
 
-        <!-- SECTION 1: HERO -->
-        <section id="hero" class="pt-8 sm:pt-16 pb-8 min-h-[85vh] flex flex-col justify-center">
+        <section id="hero" class="pt-8 sm:pt-16 pb-8 min-h-[80vh] flex flex-col justify-center">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Left Intro Column -->
                 <div class="lg:col-span-7 space-y-6">
                     
-                    <!-- Pill Tag -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 font-mono text-xs text-emerald-400">
-                        <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
-                        <span>3ème Année Bachelier — Hénallux Namur</span>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 font-mono text-xs text-[#00ff9d]">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>3ème Année Sécurité des Systèmes — Hénallux Namur</span>
                     </div>
 
-                    <!-- Main Title -->
                     <div class="space-y-2">
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                             Antoine Polo
                         </h1>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-400 flex flex-wrap items-center gap-2 font-mono">
-                            <span class="text-cyan-400">&gt;</span>
-                            <span id="typing-text" class="text-emerald-400"></span>
-                            <span class="animate-blink text-emerald-400 font-bold">|</span>
+                            <span class="text-[#00e5ff]">&gt;</span>
+                            <span id="typing-text" class="text-[#00ff9d]"></span>
+                            <span class="animate-blink text-[#00ff9d] font-bold">|</span>
                         </h2>
                     </div>
 
-                    <!-- Description -->
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-                        Futur diplômé en <strong class="text-white font-semibold">Sécurité des Systèmes</strong> à la Haute École de Namur-Liège-Luxembourg (Hénallux). Passionné d'administration Linux, d'architecture réseau sécurisée, de scripting C/Python et d'électronique embarquée.
+                        Étudiant passionné par l'<strong class="text-white font-semibold">Administration Système</strong>, la <strong class="text-white font-semibold">Cybersécurité</strong> et le <strong class="text-white font-semibold">Développement bas niveau</strong>. J'aime concevoir des infrastructures réseau robustes, automatiser des processus et programmer sur bare-metal.
                     </p>
 
-                    <!-- Badges -->
                     <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
                         <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-1.5">
-                            <i class="fa-brands fa-linux text-yellow-500"></i> SysAdmin Linux
+                            <i class="fa-brands fa-linux text-yellow-400"></i> Linux Debian / RHEL
                         </span>
                         <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-network-wired text-cyan-400"></i> Sécurité Réseau
+                            <i class="fa-solid fa-shield-halved text-[#00e5ff]"></i> Security & Networks
                         </span>
                         <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-code text-purple-400"></i> Dev C / C++ / Python
+                            <i class="fa-solid fa-code text-purple-400"></i> C / C++ / Python
                         </span>
                         <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-1.5">
                             <i class="fa-solid fa-microchip text-rose-400"></i> Microcontrôleurs Bare-Metal
                         </span>
                     </div>
 
-                    <!-- Action Buttons -->
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#projects" class="px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20 flex items-center gap-2">
-                            <i class="fa-solid fa-folder-open"></i> Explorer mes projets
+                        <a href="#projects" class="px-6 py-3 rounded-lg bg-[#00ff9d] hover:bg-emerald-400 text-black font-semibold text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+                            <i class="fa-solid fa-folder-open"></i> Découvrir mes projets
                         </a>
-                        <a href="#terminal-section" class="px-6 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-emerald-400 border border-emerald-500/40 text-sm font-mono transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-terminal"></i> Ouvrir Terminal CLI
+                        <a href="#terminal-section" class="px-6 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-[#00ff9d] border border-emerald-500/40 text-sm font-mono transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-terminal"></i> Tester le Terminal CLI
                         </a>
                         <button onclick="openCVModal()" class="px-5 py-3 rounded-lg bg-slate-800/60 hover:bg-slate-800 text-slate-300 border border-slate-700 text-sm font-medium transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-file-pdf text-red-400"></i> Aperçu / Download CV
+                            <i class="fa-solid fa-file-pdf text-red-400"></i> Voir mon CV
                         </button>
                     </div>
 
                 </div>
 
-                <!-- Right Cyber Terminal Window Mockup -->
+                <!-- Right System Info Card -->
                 <div class="lg:col-span-5">
                     <div class="glass-panel rounded-xl overflow-hidden border border-slate-800 shadow-2xl relative glow-cyan">
-                        <!-- Top Bar -->
                         <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
                             <div class="flex items-center space-x-2">
                                 <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -272,20 +242,19 @@
                                 <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
                             </div>
                             <div class="font-mono text-xs text-slate-400 flex items-center gap-2">
-                                <i class="fa-solid fa-lock text-emerald-400 text-[10px]"></i> bash — 80x24
+                                <i class="fa-solid fa-server text-[#00ff9d]"></i> sysinfo.sh
                             </div>
-                            <div class="font-mono text-xs text-slate-500">sys-info</div>
+                            <div class="font-mono text-xs text-slate-500">v3.0.1</div>
                         </div>
 
-                        <!-- Content -->
-                        <div class="p-5 font-mono text-xs space-y-3 bg-cyber-dark/90 leading-relaxed text-slate-300">
+                        <div class="p-5 font-mono text-xs space-y-3 bg-[#0a0e17]/90 leading-relaxed text-slate-300">
                             <div>
-                                <span class="text-emerald-400">antoine@henallux</span>:<span class="text-cyan-400">~</span>$ neofetch --user antoine
+                                <span class="text-[#00ff9d]">antoine@henallux</span>:<span class="text-[#00e5ff]">~</span>$ neofetch
                             </div>
                             
-                            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2 text-slate-300">
-                                <div class="sm:col-span-4 text-emerald-400 flex items-center justify-center sm:justify-start font-bold py-2">
-                                    <pre class="text-[10px] leading-none text-cyan-400 select-none">
+                            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2">
+                                <div class="sm:col-span-4 text-[#00ff9d] flex items-center justify-center font-bold py-2">
+                                    <pre class="text-[10px] leading-none text-[#00e5ff] select-none">
   /\_/\  
  ( o.o ) 
   &gt; ^ &lt;  
@@ -294,22 +263,21 @@ HENALLUX
                                     </pre>
                                 </div>
                                 <div class="sm:col-span-8 space-y-1.5 border-t sm:border-t-0 sm:border-l border-slate-800 pt-2 sm:pt-0 sm:pl-3">
-                                    <div><span class="text-emerald-400 font-semibold">OS:</span> Debian GNU/Linux 12 / RHEL 9</div>
-                                    <div><span class="text-cyan-400 font-semibold">Host:</span> Hénallux Namur (BAC 3)</div>
-                                    <div><span class="text-purple-400 font-semibold">Specialty:</span> SysAdmin & CyberSec</div>
-                                    <div><span class="text-yellow-400 font-semibold">Uptime:</span> 3 Years Academic</div>
-                                    <div><span class="text-emerald-400 font-semibold">Shell:</span> bash / zsh / neovim</div>
-                                    <div><span class="text-blue-400 font-semibold">Status:</span> Open for Internship / Job</div>
+                                    <div><span class="text-[#00ff9d] font-semibold">User:</span> Antoine Polo</div>
+                                    <div><span class="text-[#00e5ff] font-semibold">Ecole:</span> Hénallux Namur (BAC 3)</div>
+                                    <div><span class="text-purple-400 font-semibold">Filière:</span> Sécurité des Systèmes</div>
+                                    <div><span class="text-yellow-400 font-semibold">OS Favori:</span> Debian GNU/Linux</div>
+                                    <div><span class="text-rose-400 font-semibold">Passions:</span> SysAdmin, C, Hardware</div>
+                                    <div><span class="text-[#00ff9d] font-semibold">Statut:</span> Recherche de stage / Emploi</div>
                                 </div>
                             </div>
 
-                            <!-- Interactive prompt snippet -->
                             <div class="pt-3 border-t border-slate-800/80 flex items-center gap-2 text-slate-400">
-                                <span class="text-emerald-400">antoine@henallux</span>:<span class="text-cyan-400">~</span>$ 
-                                <span class="text-slate-200">cat /etc/motd</span>
+                                <span class="text-[#00ff9d]">antoine@henallux</span>:<span class="text-[#00e5ff]">~</span>$ 
+                                <span class="text-slate-200">cat /etc/quote</span>
                             </div>
                             <div class="p-2.5 rounded bg-slate-900/90 border border-slate-800 text-[11px] text-emerald-300/90 italic">
-                                "La sécurité n'est pas un produit, c'est un processus. Automatiser, sécuriser et comprendre le bas niveau."
+                                "Comprendre le fonctionnement jusqu'au niveau du registre pour mieux sécuriser l'infrastructure globale."
                             </div>
                         </div>
                     </div>
@@ -318,188 +286,141 @@ HENALLUX
             </div>
         </section>
 
-        <!-- SECTION 2: WHOAMI / ABOUT -->
         <section id="about" class="space-y-8 scroll-mt-24">
-            
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
-                    <div class="font-mono text-xs text-emerald-400 mb-1">&gt; WHOAMI</div>
-                    <h2 class="text-3xl font-extrabold text-white">À Propos & Vision</h2>
+                    <div class="font-mono text-xs text-[#00ff9d] mb-1">&gt; WHOAMI</div>
+                    <h2 class="text-3xl font-extrabold text-white">À Propos & Engagement</h2>
                 </div>
                 <div class="font-mono text-xs text-slate-400">
-                    Location: <span class="text-slate-200">Namur, Belgique</span> | Campus: <span class="text-emerald-400">Hénallux</span>
+                    Campus: <span class="text-[#00ff9d]">Hénallux Namur</span>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                
-                <!-- Main Bio Text -->
                 <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl space-y-5">
                     <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-user-shield text-emerald-400"></i>
-                        Parcours Académique & Profil
+                        <i class="fa-solid fa-user-shield text-[#00ff9d]"></i>
+                        Mon Profil Technique
                     </h3>
                     
                     <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                        Actuellement en <strong class="text-emerald-400 font-semibold">3ème année de Bachelier en Sécurité des Systèmes à l'Hénallux Namur</strong>, je combine une solide maîtrise des concepts d'infrastructures réseaux avec une grande passion pour la sécurité offensive/défensive et la programmation système.
+                        En dernière année de Bachelier en <strong class="text-[#00ff9d] font-semibold">Sécurité des Systèmes à l'Hénallux Namur</strong>, ma formation couvre à la fois l'administration système Linux/Windows, le réseau sécurisé, l'analyse de données et le développement logiciel.
                     </p>
                     
                     <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                        Mon apprentissage ne s'arrête pas aux auditoires : je gère un <strong class="text-cyan-400 font-semibold">Homelab complet</strong> (serveurs Debian/Docker, monitoring InfluxDB/Grafana, pare-feu pfSense, conteneurs Podman) où j'expérimente en continu les technologies de virtualisation, de durcissement (hardening) et de télémétrie.
+                        Très curieux et autodidacte, je fais tourner mon propre <strong class="text-[#00e5ff] font-semibold">Homelab</strong> (Proxmox, Docker, pfSense, InfluxDB, Grafana) pour expérimenter en conditions réelles le déploiement de services, la gestion de pare-feu et la télémétrie.
                     </p>
 
                     <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                        Côté code, j'affectionne tout particulièrement le <strong class="text-purple-400 font-semibold">développement en C/C++</strong> (POSIX, bas niveau, microcontrôleurs bare-metal AVR/PIC) ainsi que le scripting Python et Bash pour automatiser l'administration système.
+                        Côté programmation, j'ai une affinité particulière pour le <strong class="text-purple-400 font-semibold">C/C++ et le Python</strong>, ainsi que le monde de l'embarqué (microcontrôleurs AVR/PIC bare-metal).
                     </p>
 
-                    <!-- Key stats cards -->
                     <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-800 font-mono text-center">
                         <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                            <div class="text-2xl font-bold text-emerald-400">3e</div>
-                            <div class="text-[11px] text-slate-400 uppercase tracking-wider">Année BAC</div>
+                            <div class="text-2xl font-bold text-[#00ff9d]">BAC 3</div>
+                            <div class="text-[11px] text-slate-400 uppercase">Hénallux</div>
                         </div>
                         <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                            <div class="text-2xl font-bold text-cyan-400">12+</div>
-                            <div class="text-[11px] text-slate-400 uppercase tracking-wider">Services Homelab</div>
+                            <div class="text-2xl font-bold text-[#00e5ff]">Homelab</div>
+                            <div class="text-[11px] text-slate-400 uppercase">Proxmox / Docker</div>
                         </div>
                         <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                            <div class="text-2xl font-bold text-purple-400">100%</div>
-                            <div class="text-[11px] text-slate-400 uppercase tracking-wider">Passion IT</div>
+                            <div class="text-2xl font-bold text-purple-400">Bare-Metal</div>
+                            <div class="text-[11px] text-slate-400 uppercase">Programmation C</div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Three pillars of interest -->
                 <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
-                    
-                    <!-- Pillar 1 -->
-                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-emerald-500 hover:translate-x-1 transition-transform">
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-[#00ff9d]">
                         <div class="flex items-start gap-4">
-                            <div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400 text-xl">
+                            <div class="p-3 rounded-lg bg-emerald-500/10 text-[#00ff9d] text-xl">
                                 <i class="fa-solid fa-server"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-base">SysAdmin & Infras</h4>
-                                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                                    Administration Linux Debian/RHEL, déploiement Docker/Podman, automatisation Ansible/Bash, filtrage nftables & pfSense.
-                                </p>
+                                <h4 class="font-bold text-white text-base">Admin Sys & Cloud</h4>
+                                <p class="text-xs text-slate-400 mt-1">Linux Debian/RHEL, conteneurisation Docker & Podman, automatisation Bash, services réseau.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Pillar 2 -->
-                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-cyan-500 hover:translate-x-1 transition-transform">
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-[#00e5ff]">
                         <div class="flex items-start gap-4">
-                            <div class="p-3 rounded-lg bg-cyan-500/10 text-cyan-400 text-xl">
+                            <div class="p-3 rounded-lg bg-cyan-500/10 text-[#00e5ff] text-xl">
                                 <i class="fa-solid fa-shield-halved"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-base">Cybersécurité & Logs</h4>
-                                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                                    Analyse de trames Wireshark, centralisation de logs Elastic/ELK, audits de vulnérabilités, CTF & Reverse Engineering basique.
-                                </p>
+                                <h4 class="font-bold text-white text-base">Cybersécurité & Réseau</h4>
+                                <p class="text-xs text-slate-400 mt-1">Pare-feu pfSense, nftables, analyse de paquets Wireshark, SIEM Elastic Stack, VPN.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Pillar 3 -->
-                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-purple-500 hover:translate-x-1 transition-transform">
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-purple-500">
                         <div class="flex items-start gap-4">
                             <div class="p-3 rounded-lg bg-purple-500/10 text-purple-400 text-xl">
                                 <i class="fa-solid fa-microchip"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-base">Progra System & Embedded</h4>
-                                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                                    Programmation C/C++ (POSIX, multithreading), scripts Python (CustomTkinter, SQLite) & hardware bare-metal (AVR / PIC).
-                                </p>
+                                <h4 class="font-bold text-white text-base">Programmation & Hardware</h4>
+                                <p class="text-xs text-slate-400 mt-1">Langages C, C++, Python (CustomTkinter/SQLite), microcontrôleurs AVR & PIC, bus SPI/I2C/UART.</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </section>
 
-        <!-- SECTION 3: SKILLS MATRIX -->
         <section id="skills" class="space-y-8 scroll-mt-24">
-            
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
-                    <div class="font-mono text-xs text-cyan-400 mb-1">&gt; SKILLS_MATRIX</div>
+                    <div class="font-mono text-xs text-[#00e5ff] mb-1">&gt; SKILLS_MATRIX</div>
                     <h2 class="text-3xl font-extrabold text-white">Compétences Techniques</h2>
                 </div>
-                <!-- Interactive Filter Buttons -->
+                
+                <!-- Skill Filter Buttons -->
                 <div class="flex flex-wrap gap-2 font-mono text-xs" id="skills-filter">
-                    <button data-filter="all" class="skill-filter-btn px-3 py-1.5 rounded-lg bg-emerald-500 text-black font-semibold transition-all">
+                    <button data-filter="all" class="skill-btn px-3 py-1.5 rounded-lg bg-[#00ff9d] text-black font-semibold transition-all">
                         Tout
                     </button>
-                    <button data-filter="security" class="skill-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                    <button data-filter="security" class="skill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
                         Sécurité & Réseaux
                     </button>
-                    <button data-filter="sysadmin" class="skill-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        SysAdmin & Cloud
+                    <button data-filter="sysadmin" class="skill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Admin Sys & DevOps
                     </button>
-                    <button data-filter="dev" class="skill-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Développement
+                    <button data-filter="dev" class="skill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Programmation
                     </button>
-                    <button data-filter="hardware" class="skill-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Hardware & Embarqué
+                    <button data-filter="hardware" class="skill-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                        Hardware
                     </button>
                 </div>
             </div>
 
-            <!-- Skills Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
                 
-                <!-- Skill 1: Security -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="security">
+                <div class="skill-item glass-panel p-5 rounded-2xl space-y-4" data-category="security">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-[#00e5ff] text-lg">
                                 <i class="fa-solid fa-network-wired"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-sm">pfSense & Firewalling</h3>
-                                <p class="text-[11px] font-mono text-slate-400">Réseau & Filtrage</p>
+                                <h3 class="font-bold text-white text-sm">pfSense & Firewalls</h3>
+                                <p class="text-[11px] font-mono text-slate-400">Réseau & Sécurité</p>
                             </div>
                         </div>
-                        <span class="font-mono text-xs font-bold text-cyan-400">90%</span>
+                        <span class="font-mono text-xs font-bold text-[#00e5ff]">90%</span>
                     </div>
                     <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-cyan-500 to-emerald-400 h-2 rounded-full" style="width: 90%"></div>
+                        <div class="bg-gradient-to-r from-cyan-500 to-[#00ff9d] h-2 rounded-full" style="width: 90%"></div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Configuration de pare-feux, règles CARP, VPN IPsec/OpenVPN, VLANs 802.1Q, filtrage nftables sous Linux.
-                    </p>
+                    <p class="text-xs text-slate-400">VLANs, règles de filtrage, NAT, VPN IPsec & OpenVPN, nftables.</p>
                 </div>
 
-                <!-- Skill 2: Security -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="security">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-sm">Elastic / ELK Stack</h3>
-                                <p class="text-[11px] font-mono text-slate-400">SIEM & Telemetry</p>
-                            </div>
-                        </div>
-                        <span class="font-mono text-xs font-bold text-emerald-400">80%</span>
-                    </div>
-                    <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-emerald-500 to-cyan-400 h-2 rounded-full" style="width: 80%"></div>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Centralisation de logs avec Filebeat/Logstash, tableaux de bord Kibana, métriques réseau et alertes de sécurité.
-                    </p>
-                </div>
-
-                <!-- Skill 3: SysAdmin -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="sysadmin">
+                <div class="skill-item glass-panel p-5 rounded-2xl space-y-4" data-category="sysadmin">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 text-lg">
@@ -507,7 +428,7 @@ HENALLUX
                             </div>
                             <div>
                                 <h3 class="font-bold text-white text-sm">Linux Debian & RHEL</h3>
-                                <p class="text-[11px] font-mono text-slate-400">System Administration</p>
+                                <p class="text-[11px] font-mono text-slate-400">Administration Système</p>
                             </div>
                         </div>
                         <span class="font-mono text-xs font-bold text-yellow-400">95%</span>
@@ -515,13 +436,10 @@ HENALLUX
                     <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                         <div class="bg-gradient-to-r from-yellow-500 to-amber-300 h-2 rounded-full" style="width: 95%"></div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Gestion de services (systemd), durcissement SSH, LVM, permissions avancées, scripts Bash & Cron.
-                    </p>
+                    <p class="text-xs text-slate-400">Gestion services (systemd), SSH, LVM, scripts Bash & automatisation.</p>
                 </div>
 
-                <!-- Skill 4: SysAdmin -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="sysadmin">
+                <div class="skill-item glass-panel p-5 rounded-2xl space-y-4" data-category="sysadmin">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-lg">
@@ -537,21 +455,18 @@ HENALLUX
                     <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                         <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full" style="width: 85%"></div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Docker Compose, Podman rootless, réseaux virtuels, persistance de volumes, déploiement d'applications self-hosted.
-                    </p>
+                    <p class="text-xs text-slate-400">Docker Compose, conteneurs rootless Podman, volumes et réseaux virtuels.</p>
                 </div>
 
-                <!-- Skill 5: Dev -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="dev">
+                <div class="skill-item glass-panel p-5 rounded-2xl space-y-4" data-category="dev">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg">
                                 <i class="fa-solid fa-code"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-sm">Langage C / C++</h3>
-                                <p class="text-[11px] font-mono text-slate-400">Programmation Système</p>
+                                <h3 class="font-bold text-white text-sm">Langages C / C++</h3>
+                                <p class="text-[11px] font-mono text-slate-400">Bas Niveau & Système</p>
                             </div>
                         </div>
                         <span class="font-mono text-xs font-bold text-purple-400">85%</span>
@@ -559,35 +474,29 @@ HENALLUX
                     <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                         <div class="bg-gradient-to-r from-purple-500 to-pink-400 h-2 rounded-full" style="width: 85%"></div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Pointeurs, gestion mémoire explicite (malloc/free), sockets POSIX, multithreading pthreads, Makefiles.
-                    </p>
+                    <p class="text-xs text-slate-400">Pointeurs, gestion mémoire, Sockets POSIX, multithreading pthreads.</p>
                 </div>
 
-                <!-- Skill 6: Dev -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="dev">
+                <div class="skill-item glass-panel p-5 rounded-2xl space-y-4" data-category="dev">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-[#00ff9d] text-lg">
                                 <i class="fa-brands fa-python"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-white text-sm">Python & Automation</h3>
-                                <p class="text-[11px] font-mono text-slate-400">Scripting & Desktop Apps</p>
+                                <p class="text-[11px] font-mono text-slate-400">Scripting & Desktop</p>
                             </div>
                         </div>
-                        <span class="font-mono text-xs font-bold text-emerald-400">90%</span>
+                        <span class="font-mono text-xs font-bold text-[#00ff9d]">90%</span>
                     </div>
                     <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                         <div class="bg-gradient-to-r from-emerald-500 to-teal-300 h-2 rounded-full" style="width: 90%"></div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        CustomTkinter (GUI desktop), intégration SQLite, parsing de fichiers de logs, scripts de scraping et d'automatisation.
-                    </p>
+                    <p class="text-xs text-slate-400">CustomTkinter GUI, base SQLite3, parsing de logs, automatisation.</p>
                 </div>
 
-                <!-- Skill 7: Hardware -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="hardware">
+                <div class="skill-item glass-panel p-5 rounded-2xl space-y-4" data-category="hardware">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-lg">
@@ -595,7 +504,7 @@ HENALLUX
                             </div>
                             <div>
                                 <h3 class="font-bold text-white text-sm">Microcontrôleurs Bare-Metal</h3>
-                                <p class="text-[11px] font-mono text-slate-400">AVR, PIC & Electronics</p>
+                                <p class="text-[11px] font-mono text-slate-400">AVR & PIC</p>
                             </div>
                         </div>
                         <span class="font-mono text-xs font-bold text-rose-400">80%</span>
@@ -603,61 +512,13 @@ HENALLUX
                     <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                         <div class="bg-gradient-to-r from-rose-500 to-orange-400 h-2 rounded-full" style="width: 80%"></div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Programmation directe de registres, interruptions matérielles, protocoles SPI/I2C/UART, simulations LTspice.
-                    </p>
-                </div>
-
-                <!-- Skill 8: SysAdmin -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="sysadmin">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg">
-                                <i class="fa-solid fa-tachograph-digital"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-sm">InfluxDB & Grafana</h3>
-                                <p class="text-[11px] font-mono text-slate-400">Monitoring & Télémétrie</p>
-                            </div>
-                        </div>
-                        <span class="font-mono text-xs font-bold text-indigo-400">85%</span>
-                    </div>
-                    <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-indigo-500 to-purple-400 h-2 rounded-full" style="width: 85%"></div>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Ingestion de séries temporelles avec Telegraf, requêtes InfluxQL/Flux, dashboards Grafana temps réel.
-                    </p>
-                </div>
-
-                <!-- Skill 9: Security -->
-                <div class="skill-card glass-panel p-5 rounded-2xl space-y-4" data-category="security">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-lg">
-                                <i class="fa-solid fa-bug"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-sm">Wireshark & Pentesting</h3>
-                                <p class="text-[11px] font-mono text-slate-400">Analyse de trafic & CTF</p>
-                            </div>
-                        </div>
-                        <span class="font-mono text-xs font-bold text-teal-400">78%</span>
-                    </div>
-                    <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-teal-500 to-emerald-400 h-2 rounded-full" style="width: 78%"></div>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Analyse PCAP avancée, recherche de failles web/système, utilisation des outils Kali (Nmap, Burp Suite, Metasploit basics).
-                    </p>
+                    <p class="text-xs text-slate-400">Registres, interruptions matérielles, protocoles SPI/I2C/UART, LTspice.</p>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECTION 4: PARCOURS & EXPERIENCE -->
         <section id="experience" class="space-y-8 scroll-mt-24">
-            
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
                     <div class="font-mono text-xs text-purple-400 mb-1">&gt; TIMELINE</div>
@@ -665,80 +526,57 @@ HENALLUX
                 </div>
             </div>
 
-            <!-- Timeline Container -->
             <div class="relative border-l-2 border-slate-800 ml-4 sm:ml-8 space-y-8">
                 
-                <!-- Timeline Item 1 -->
                 <div class="relative pl-6 sm:pl-8 group">
-                    <!-- Dot -->
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-cyber-dark group-hover:scale-125 transition-transform shadow-lg shadow-emerald-500/50"></div>
-                    
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#00ff9d] border-4 border-[#0a0e17] group-hover:scale-125 transition-transform shadow-lg shadow-emerald-500/50"></div>
                     <div class="glass-panel p-6 rounded-2xl space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
-                            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                                2022 — Présent (3ème Année)
+                            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-[#00ff9d] border border-emerald-500/30">
+                                2022 — Présent (BAC 3)
                             </span>
                             <span class="text-slate-400">Namur, Belgique</span>
                         </div>
-
-                        <h3 class="text-lg font-bold text-white">
-                            Bachelier en Sécurité des Systèmes (Cybersécurité & IT)
-                        </h3>
-                        <p class="text-sm text-emerald-400 font-mono">Haute École de Namur-Liège-Luxembourg (Hénallux)</p>
-
+                        <h3 class="text-lg font-bold text-white">Bachelier en Sécurité des Systèmes</h3>
+                        <p class="text-sm text-[#00ff9d] font-mono">Haute École de Namur-Liège-Luxembourg (Hénallux)</p>
                         <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
-                            <li>Projets d'infrastructure réseau : découpage Subnetting, VLANs, pare-feu pfSense, VPN OpenVPN & IPsec.</li>
-                            <li>Développement bas niveau : programmation C POSIX, multithreading, sockets réseau.</li>
-                            <li>Virtualisation et conteneurisation : administration avancée Linux Debian, Docker, Podman.</li>
-                            <li>Cybersécurité défensive & offensive : analyse de logs (Elastic), pentest, sécurité réseau.</li>
+                            <li>Architecture et sécurité réseau (VLAN, pfSense, OpenVPN, Subnetting).</li>
+                            <li>Développement bas niveau en C POSIX & scripting de gestion de serveurs.</li>
+                            <li>Virtualisation (Proxmox, VMware) et conteneurs (Docker, Podman).</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Timeline Item 2 -->
                 <div class="relative pl-6 sm:pl-8 group">
-                    <!-- Dot -->
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 border-4 border-cyber-dark group-hover:scale-125 transition-transform"></div>
-                    
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#00e5ff] border-4 border-[#0a0e17] group-hover:scale-125 transition-transform"></div>
                     <div class="glass-panel p-6 rounded-2xl space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
-                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                                2024 (Stage & Projets)
+                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-[#00e5ff] border border-cyan-500/30">
+                                Stage & Pratique
                             </span>
                             <span class="text-slate-400">Lenoir Elec</span>
                         </div>
-
-                        <h3 class="text-lg font-bold text-white">
-                            Stage Technique & Infrastructure Systèmes
-                        </h3>
-                        <p class="text-sm text-cyan-400 font-mono">Lenoir Elec — Administration & Systèmes</p>
-
+                        <h3 class="text-lg font-bold text-white">Stage Infrastructure & Systèmes</h3>
+                        <p class="text-sm text-[#00e5ff] font-mono">Lenoir Elec — Belgique</p>
                         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            Participation à la maintenance des serveurs d'entreprise, audit des accès réseaux, automatisation de tâches d'inventaire informatique et rédaction de procédures d'exploitation technique.
+                            Support aux infrastructures IT, inventaire réseau, assistance aux déploiements de postes sécurisés et suivi de la politique de sécurité interne.
                         </p>
                     </div>
                 </div>
 
-                <!-- Timeline Item 3 -->
                 <div class="relative pl-6 sm:pl-8 group">
-                    <!-- Dot -->
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-500 border-4 border-cyber-dark group-hover:scale-125 transition-transform"></div>
-                    
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-500 border-4 border-[#0a0e17] group-hover:scale-125 transition-transform"></div>
                     <div class="glass-panel p-6 rounded-2xl space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
                             <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                                2023 — Présent
+                                Projet Étudiant
                             </span>
-                            <span class="text-slate-400">Projet Communautaire</span>
+                            <span class="text-slate-400">Hénallux</span>
                         </div>
-
-                        <h3 class="text-lg font-bold text-white">
-                            Fondateur & Animateur — "Maker Hub" Hénallux
-                        </h3>
-                        <p class="text-sm text-purple-400 font-mono">Initiative Étudiante & Communauté Discord</p>
-
+                        <h3 class="text-lg font-bold text-white">Créateur du "Maker Hub" Hénallux</h3>
+                        <p class="text-sm text-purple-400 font-mono">Communauté d'Entraide Technique</p>
                         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            Création d'un espace d'entraide pour étudiants passionnés d'électronique, d'Iot et d'administration système. Organisation de sessions d'entraide au code C/Python et d'ateliers microcontrôleurs.
+                            Animation d'un groupe d'étudiants passionnés d'électronique, d'IoT et de programmation C/Python. Organisation d'ateliers pratiques et d'entraide.
                         </p>
                     </div>
                 </div>
@@ -746,220 +584,705 @@ HENALLUX
             </div>
         </section>
 
-        <!-- SECTION 5: PROJECTS -->
         <section id="projects" class="space-y-8 scroll-mt-24">
-            
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
                     <div class="font-mono text-xs text-yellow-400 mb-1">&gt; FEATURED_PROJECTS</div>
                     <h2 class="text-3xl font-extrabold text-white">Projets Réalisés</h2>
                 </div>
-                
-                <!-- Project Filter Buttons -->
-                <div class="flex flex-wrap gap-2 font-mono text-xs" id="project-filter">
-                    <button data-proj-filter="all" class="proj-filter-btn px-3 py-1.5 rounded-lg bg-emerald-500 text-black font-semibold transition-all">
-                        Tous les projets
-                    </button>
-                    <button data-proj-filter="sysadmin" class="proj-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Homelab & Infras
-                    </button>
-                    <button data-proj-filter="embedded" class="proj-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Embarqué & C
-                    </button>
-                    <button data-proj-filter="software" class="proj-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
-                        Software Python
-                    </button>
-                </div>
             </div>
 
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- Project Card 1 -->
-                <div class="proj-card glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all" data-proj-category="sysadmin">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                                Docker & Télémétrie
-                            </span>
-                            <i class="fa-solid fa-chart-pie text-emerald-400 text-xl"></i>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-white">Homelab & Telemetry Stack</h3>
-                        
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            Infrastructure de monitoring en conteneurs sous Debian Linux. Ingestion de métriques en temps réel avec Telegraf, stockage InfluxDB et dashboards Grafana dynamiques.
-                        </p>
-
-                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-2">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Docker</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">InfluxDB</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Grafana</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Debian 12</span>
-                        </div>
+                <!-- Project 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-[#00ff9d] border border-emerald-500/30">
+                            Homelab & Telemetry
+                        </span>
+                        <i class="fa-solid fa-chart-pie text-[#00ff9d] text-xl"></i>
                     </div>
-
-                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openProjectModal('homelab')" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 font-semibold">
-                            <i class="fa-solid fa-circle-info"></i> Détails de l'architecture
-                        </button>
-                        <span class="text-slate-500">2024</span>
+                    <h3 class="text-xl font-bold text-white">Stack Télémétrie Homelab</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Déploiement en conteneurs Docker de Telegraf, InfluxDB et Grafana sur serveur Debian. Suivi en direct de la charge CPU, RAM, bande passante et état des conteneurs.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Docker</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Grafana</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">InfluxDB</span>
                     </div>
+                    <button onclick="openModal('homelab')" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[#00ff9d] font-mono text-xs transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> En savoir plus
+                    </button>
                 </div>
 
-                <!-- Project Card 2 -->
-                <div class="proj-card glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-rose-500/50 transition-all" data-proj-category="embedded">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-mono px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 border border-rose-500/30">
-                                Hardware & C
-                            </span>
-                            <i class="fa-solid fa-microchip text-rose-400 text-xl"></i>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-white">Carte Développement AVR pour CTF</h3>
-                        
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            Conception de carte microcontrôleur ATmega328P custom et programmation Bare-Metal en langage C avec registres d'interruptions et protocole SPI pour épreuves de sécurité matériel.
-                        </p>
-
-                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-2">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">C Bare-Metal</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">AVR-GCC</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">SPI / UART</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">KiCad</span>
-                        </div>
+                <!-- Project 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-rose-500/50 transition-all p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 border border-rose-500/30">
+                            Hardware & C
+                        </span>
+                        <i class="fa-solid fa-microchip text-rose-400 text-xl"></i>
                     </div>
-
-                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openProjectModal('avr')" class="text-rose-400 hover:text-rose-300 flex items-center gap-1.5 font-semibold">
-                            <i class="fa-solid fa-circle-info"></i> Détails du projet
-                        </button>
-                        <span class="text-slate-500">2024</span>
+                    <h3 class="text-xl font-bold text-white">Carte Microcontrôleur AVR Bare-Metal</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Conception et programmation sans bibliothèques d'un ATmega328P en C. Manipulation directe des registres, interruptions et bus de communication SPI.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">C Bare-Metal</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">AVR-GCC</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">SPI / UART</span>
                     </div>
+                    <button onclick="openModal('avr')" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-400 font-mono text-xs transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> En savoir plus
+                    </button>
                 </div>
 
-                <!-- Project Card 3 -->
-                <div class="proj-card glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-cyan-500/50 transition-all" data-proj-category="software">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                                Python Desktop App
-                            </span>
-                            <i class="fa-solid fa-boxes-stacked text-cyan-400 text-xl"></i>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-white">Gestionnaire d'Inventaire Composants</h3>
-                        
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            Application desktop développée en Python avec CustomTkinter et SQLite. Permet le suivi en stock, la gestion des références électroniques et le scan de QR codes.
-                        </p>
-
-                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-2">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python 3</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">CustomTkinter</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">SQLite3</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Pillow</span>
-                        </div>
+                <!-- Project 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-cyan-500/50 transition-all p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/10 text-[#00e5ff] border border-cyan-500/30">
+                            Software Desktop
+                        </span>
+                        <i class="fa-solid fa-boxes-stacked text-[#00e5ff] text-xl"></i>
                     </div>
-
-                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openProjectModal('inventaire')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 font-semibold">
-                            <i class="fa-solid fa-circle-info"></i> Détails de l'app
-                        </button>
-                        <span class="text-slate-500">2023</span>
+                    <h3 class="text-xl font-bold text-white">Gestionnaire d'Inventaire Composants</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Application bureau Python réalisée avec CustomTkinter et SQLite. Gestion dynamique des stocks d'atelier, composants électroniques et export de données.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python 3</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">CustomTkinter</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">SQLite3</span>
                     </div>
+                    <button onclick="openModal('inventaire')" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[#00e5ff] font-mono text-xs transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> En savoir plus
+                    </button>
                 </div>
 
-                <!-- Project Card 4 -->
-                <div class="proj-card glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-purple-500/50 transition-all" data-proj-category="sysadmin">
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                                Sécurité Réseau
-                            </span>
-                            <i class="fa-solid fa-shield-cat text-purple-400 text-xl"></i>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-white">Infrastructure VPN & Firewall PfSense</h3>
-                        
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            Déploiement complet d'un pare-feu pfSense virtualisé sous Proxmox VE avec routage inter-VLANs, tunnels OpenVPN chiffrés et règles de filtrage nftables sur hôtes Linux.
-                        </p>
-
-                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] pt-2">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">pfSense</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">OpenVPN</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">nftables</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Proxmox VE</span>
-                        </div>
+                <!-- Project 4 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:border-purple-500/50 transition-all p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                            Réseau & Firewall
+                        </span>
+                        <i class="fa-solid fa-network-wired text-purple-400 text-xl"></i>
                     </div>
-
-                    <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openProjectModal('vpn')" class="text-purple-400 hover:text-purple-300 flex items-center gap-1.5 font-semibold">
-                            <i class="fa-solid fa-circle-info"></i> Détails réseau
-                        </button>
-                        <span class="text-slate-500">2024</span>
+                    <h3 class="text-xl font-bold text-white">Architecture pfSense & OpenVPN</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Mise en place d'un pare-feu pfSense sous Proxmox VE avec segmentation VLAN, filtrage d'accès strict, serveur OpenVPN pour accès nomade et suivi de paquets.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">pfSense</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">VLANs</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">OpenVPN</span>
                     </div>
+                    <button onclick="openModal('pfsense')" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-purple-400 font-mono text-xs transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> En savoir plus
+                    </button>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECTION 6: INTERACTIVE TERMINAL -->
         <section id="terminal-section" class="space-y-6 scroll-mt-24">
-            
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
-                    <div class="font-mono text-xs text-emerald-400 mb-1">&gt; INTERACTIVE_SHELL</div>
+                    <div class="font-mono text-xs text-[#00ff9d] mb-1">&gt; INTERACTIVE_SHELL</div>
                     <h2 class="text-3xl font-extrabold text-white">Terminal CLI Interactif</h2>
                 </div>
                 <p class="text-xs font-mono text-slate-400">
-                    Tapez <span class="text-emerald-400 font-bold">help</span> pour afficher la liste des commandes.
+                    Tapez <span class="text-[#00ff9d] font-bold">help</span> et appuyez sur Entrée.
                 </p>
             </div>
 
-            <!-- Terminal Window -->
+            <!-- Terminal Component -->
             <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 shadow-2xl font-mono text-xs sm:text-sm glow-neon">
                 
-                <!-- Terminal Header Bar -->
+                <!-- Terminal Bar -->
                 <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
                     <div class="flex items-center space-x-2">
-                        <button onclick="clearTerminal()" class="w-3 h-3 rounded-full bg-red-500 hover:opacity-80 transition-opacity" title="Clear"></button>
-                        <button onclick="executeCommand('matrix')" class="w-3 h-3 rounded-full bg-yellow-500 hover:opacity-80 transition-opacity" title="Matrix Mode"></button>
-                        <button onclick="executeCommand('neofetch')" class="w-3 h-3 rounded-full bg-emerald-500 hover:opacity-80 transition-opacity" title="Neofetch"></button>
+                        <button onclick="execShortcut('clear')" class="w-3 h-3 rounded-full bg-red-500 hover:opacity-80" title="Effacer"></button>
+                        <button onclick="execShortcut('matrix')" class="w-3 h-3 rounded-full bg-yellow-500 hover:opacity-80" title="Matrix FX"></button>
+                        <button onclick="execShortcut('whoami')" class="w-3 h-3 rounded-full bg-emerald-500 hover:opacity-80" title="Whoami"></button>
                     </div>
                     <div class="text-slate-400 font-semibold text-xs flex items-center gap-2">
-                        <i class="fa-solid fa-terminal text-emerald-400"></i>
+                        <i class="fa-solid fa-terminal text-[#00ff9d]"></i>
                         antoine@henallux-portfolio: ~ (bash)
                     </div>
                     <div class="text-slate-500 text-xs hidden sm:block">TTY1</div>
                 </div>
 
-                <!-- Quick Command Buttons Bar -->
+                <!-- Shortcuts Bar -->
                 <div class="bg-slate-900/60 px-4 py-2 border-b border-slate-800/80 flex flex-wrap gap-2 text-xs">
                     <span class="text-slate-500 self-center">Raccourcis:</span>
-                    <button onclick="executeCommand('help')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700">help</button>
-                    <button onclick="executeCommand('whoami')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700">whoami</button>
-                    <button onclick="executeCommand('skills')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-400 border border-slate-700">skills</button>
-                    <button onclick="executeCommand('projects')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-yellow-400 border border-slate-700">projects</button>
-                    <button onclick="executeCommand('cat cv.txt')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-rose-400 border border-slate-700">cat cv.txt</button>
-                    <button onclick="executeCommand('matrix')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700">matrix</button>
-                    <button onclick="clearTerminal()" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700">clear</button>
+                    <button onclick="execShortcut('help')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[#00ff9d] border border-slate-700">help</button>
+                    <button onclick="execShortcut('whoami')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[#00e5ff] border border-slate-700">whoami</button>
+                    <button onclick="execShortcut('skills')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-purple-400 border border-slate-700">skills</button>
+                    <button onclick="execShortcut('projects')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-yellow-400 border border-slate-700">projects</button>
+                    <button onclick="execShortcut('education')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700">education</button>
+                    <button onclick="execShortcut('cat cv.txt')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-rose-400 border border-slate-700">cat cv.txt</button>
+                    <button onclick="execShortcut('matrix')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700">matrix</button>
+                    <button onclick="execShortcut('clear')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700">clear</button>
                 </div>
 
-                <!-- Terminal Body Output -->
-                <div id="terminal-body" class="p-4 sm:p-6 bg-cyber-dark/95 min-h-[280px] max-h-[420px] overflow-y-auto space-y-3 leading-relaxed">
+                <!-- Terminal Output Display -->
+                <div id="terminal-body" class="p-4 sm:p-6 bg-[#0a0e17]/95 min-h-[300px] max-h-[420px] overflow-y-auto space-y-3 leading-relaxed">
                     <div class="text-slate-400">
-                        Bienvenue sur le terminal de <span class="text-emerald-400 font-bold">Antoine Polo</span>.
+                        Bienvenue sur le terminal d'<span class="text-[#00ff9d] font-bold">Antoine Polo</span>.
                     </div>
                     <div class="text-slate-500">
-                        Tapez '<span class="text-emerald-400">help</span>' pour voir toutes les commandes ou cliquez sur un des raccourcis ci-dessus.
+                        Tapez '<span class="text-[#00ff9d]">help</span>' pour la liste des commandes ou cliquez sur les boutons raccourcis.
                     </div>
                 </div>
 
-                <!-- Input Prompt Line -->
+                <!-- Terminal Prompt Line -->
                 <div class="bg-slate-900/90 px-4 sm:px-6 py-3 border-t border-slate-800 flex items-center gap-2">
-                    <span class="text-emerald-400 font-bold">antoine@henallux:~$</span>
-                    <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" class="flex-1 bg-transparent border-none outline-none text-slate-100 font-mono text-xs sm:text-sm placeholder-slate-600 focus:ring-0" placeholder="Entrez une commande (ex: help, whoami, matrix)...">
-                    <button onclick="submitTerminalInput()" class="px-3
+                    <span class="text-[#00ff9d] font-bold whitespace-nowrap">antoine@henallux:~$</span>
+                    <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" class="flex-1 bg-transparent border-none outline-none text-slate-100 font-mono text-xs sm:text-sm placeholder-slate-600 focus:ring-0" placeholder="Entrez une commande (ex: help, whoami)...">
+                    <button id="terminal-send-btn" class="px-3 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-[#00ff9d] text-xs font-bold transition-all">
+                        Envoyer
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="space-y-8 scroll-mt-24">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+                <div>
+                    <div class="font-mono text-xs text-[#00e5ff] mb-1">&gt; GET_IN_TOUCH</div>
+                    <h2 class="text-3xl font-extrabold text-white">Me Contacter</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-5 glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+                    <h3 class="text-xl font-bold text-white">Informations de Contact</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        À la recherche d'une opportunité en <strong class="text-white">Administration Système & Sécurité IT</strong>. N'hésitez pas à m'envoyer un message !
+                    </p>
+
+                    <div class="space-y-4 font-mono text-xs">
+                        <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-[#00ff9d] text-base">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-slate-400">Email</div>
+                                <a href="mailto:antoine.polo@student.henallux.be" class="text-white hover:text-[#00ff9d] transition-colors">antoine.polo@student.henallux.be</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-[#00e5ff] text-base">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-slate-400">Localisation</div>
+                                <div class="text-white">Namur & Région Wallonne, Belgique</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-base">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <div class="text-slate-400">Établissement</div>
+                                <div class="text-white">Hénallux Namur — Sécurité des Systèmes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex items-center gap-3">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-[#00ff9d] transition-all">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-[#00e5ff] transition-all">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-purple-400 transition-all">
+                            <i class="fa-brands fa-discord text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label for="form-name" class="block font-mono text-xs text-slate-300">Votre Nom</label>
+                                <input type="text" id="form-name" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-[#00ff9d] transition-colors" placeholder="John Doe">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label for="form-email" class="block font-mono text-xs text-slate-300">Votre Email</label>
+                                <input type="email" id="form-email" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-[#00ff9d] transition-colors" placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label for="form-subject" class="block font-mono text-xs text-slate-300">Sujet</label>
+                            <input type="text" id="form-subject" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-[#00ff9d] transition-colors" placeholder="Stage / Opportunité / Projet">
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label for="form-message" class="block font-mono text-xs text-slate-300">Message</label>
+                            <textarea id="form-message" rows="4" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-[#00ff9d] transition-colors resize-none" placeholder="Bonjour Antoine, nous aimerions échanger avec vous concernant..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 rounded-xl bg-[#00ff9d] hover:bg-emerald-400 text-black font-semibold text-sm transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Envoyer le message
+                        </button>
+
+                        <div id="form-status" class="hidden p-3 rounded-xl font-mono text-xs text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Generic Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-panel max-w-2xl w-full rounded-2xl overflow-hidden border border-slate-700 shadow-2xl relative animate-fadeIn">
+            <div class="bg-slate-900 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                <h3 id="modal-title" class="font-mono text-base font-bold text-white">Détails du projet</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="p-6 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed max-h-[70vh] overflow-y-auto">
+                <!-- Dynamic Content -->
+            </div>
+            <div class="bg-slate-900/90 px-6 py-3 border-t border-slate-800 flex justify-end">
+                <button onclick="closeModal()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Modal -->
+    <div id="cv-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-panel max-w-3xl w-full rounded-2xl overflow-hidden border border-slate-700 shadow-2xl relative">
+            <div class="bg-slate-900 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                <h3 class="font-mono text-base font-bold text-[#00ff9d] flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf"></i> Curriculum Vitae — Antoine Polo
+                </h3>
+                <button onclick="closeCVModal()" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 font-mono text-xs space-y-4 max-h-[70vh] overflow-y-auto">
+                <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+                    <div class="text-lg font-bold text-white">Antoine Polo</div>
+                    <div class="text-slate-400">Étudiant BAC 3 Sécurité des Systèmes — Hénallux Namur</div>
+                    <div class="text-slate-400">Belgique | Permis B</div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="font-bold text-[#00e5ff] uppercase tracking-wider">&gt; FORMATION</div>
+                    <p class="text-slate-300">• 2022-2025 : Bachelier en Sécurité des Systèmes (Hénallux Namur)</p>
+                    <p class="text-slate-400 text-[11px] pl-3">- Virtualisation, Réseaux Cisco/pfSense, Linux Administration, Programmation C/Python.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="font-bold text-[#00ff9d] uppercase tracking-wider">&gt; COMPÉTENCES CLÉS</div>
+                    <p class="text-slate-300">• Systems: Debian, RHEL, Proxmox, Docker, Podman, Systemd, Bash</p>
+                    <p class="text-slate-300">• Security: pfSense, nftables, Wireshark, OpenVPN, IPsec, Elastic Stack</p>
+                    <p class="text-slate-300">• Development: C / C++, Python (CustomTkinter/SQLite), AVR Bare-Metal</p>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="font-bold text-purple-400 uppercase tracking-wider">&gt; EXPÉRIENCES</div>
+                    <p class="text-slate-300">• Stage IT @ Lenoir Elec — Support infrastructure & sécurité</p>
+                    <p class="text-slate-300">• Fondateur du Maker Hub Hénallux — Ateliers hardware & dev</p>
+                </div>
+            </div>
+            <div class="bg-slate-900/90 px-6 py-4 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-xs text-slate-400 font-mono">Format PDF disponible sur demande</span>
+                <button onclick="closeCVModal()" class="px-4 py-2 rounded-lg bg-[#00ff9d] text-black font-semibold text-xs font-mono">
+                    Fermer la vue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Typing Effect
+        const phrases = [
+            "SysAdmin Linux & Homelab",
+            "Étudiant 3ème Année @ Hénallux",
+            "Sécurité Réseau & pfSense",
+            "Développeur C / Bare-Metal",
+            "Passionné de Conteneurs & Docker"
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typingSpeed = 70;
+        const typingElement = document.getElementById("typing-text");
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIdx];
+            if (isDeleting) {
+                charIdx--;
+            } else {
+                charIdx++;
+            }
+
+            if (typingElement) {
+                typingElement.textContent = currentPhrase.substring(0, charIdx);
+            }
+
+            let delta = typingSpeed;
+            if (isDeleting) delta /= 2;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                delta = 1800; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                delta = 400;
+            }
+
+            setTimeout(typeLoop, delta);
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+        }
+
+        const filterBtns = document.querySelectorAll(".skill-btn");
+        const skillItems = document.querySelectorAll(".skill-item");
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const category = btn.getAttribute("data-filter");
+                
+                filterBtns.forEach(b => {
+                    b.classList.remove("bg-[#00ff9d]", "text-black", "font-semibold");
+                    b.classList.add("bg-slate-800", "text-slate-300");
+                });
+                btn.classList.removeClass ? btn.classList.removeClass("bg-slate-800", "text-slate-300") : null;
+                btn.className = "skill-btn px-3 py-1.5 rounded-lg bg-[#00ff9d] text-black font-semibold transition-all";
+
+                skillItems.forEach(item => {
+                    if (category === "all" || item.getAttribute("data-category") === category) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        // Explicitly exposing execShortcut globally
+        window.execShortcut = function(command) {
+            const input = document.getElementById("terminal-input");
+            if (input) {
+                input.value = command;
+                runCommand(command);
+                input.value = "";
+            }
+        };
+
+        function runCommand(cmdRaw) {
+            const cmd = cmdRaw.trim().toLowerCase();
+            const terminalBody = document.getElementById("terminal-body");
+            if (!terminalBody) return;
+
+            // Echo input line
+            const userLine = document.createElement("div");
+            userLine.className = "text-slate-300 font-mono text-xs flex items-center gap-2 pt-1";
+            userLine.innerHTML = `<span class="text-[#00ff9d]">antoine@henallux:~$</span> <span>${escapeHtml(cmdRaw)}</span>`;
+            terminalBody.appendChild(userLine);
+
+            const response = document.createElement("div");
+            response.className = "text-slate-300 font-mono text-xs pl-2 border-l-2 border-slate-700 py-1 space-y-1";
+
+            switch(cmd) {
+                case "help":
+                    response.innerHTML = `
+                        <div class="text-[#00ff9d] font-bold">Commandes disponibles:</div>
+                        <div><span class="text-[#00e5ff]">whoami</span> - Courte présentation d'Antoine</div>
+                        <div><span class="text-[#00e5ff]">skills</span> - Résumé des compétences techniques</div>
+                        <div><span class="text-[#00e5ff]">projects</span> - Liste des projets principaux</div>
+                        <div><span class="text-[#00e5ff]">education</span> - Parcours académique à l'Hénallux</div>
+                        <div><span class="text-[#00e5ff]">cat cv.txt</span> - Afficher le résumé du CV</div>
+                        <div><span class="text-[#00e5ff]">contact</span> - Coordonnées et email</div>
+                        <div><span class="text-[#00e5ff]">clear</span> - Effacer l'affichage du terminal</div>
+                        <div><span class="text-[#00e5ff]">matrix</span> - Activer/Désactiver l'effet visuel Matrix</div>
+                        <div><span class="text-[#00e5ff]">sudo</span> - Exécuter en super-utilisateur</div>
+                    `;
+                    break;
+
+                case "whoami":
+                    response.innerHTML = `
+                        <div class="text-[#00ff9d] font-bold">Antoine Polo</div>
+                        <div>Étudiant BAC 3 en Sécurité des Systèmes @ Hénallux Namur.</div>
+                        <div>Passionné d'Admin Sys Linux, Sécurité Réseau, C POSIX et Hardware Bare-Metal.</div>
+                    `;
+                    break;
+
+                case "skills":
+                    response.innerHTML = `
+                        <div class="text-yellow-400 font-bold">Skills Matrix:</div>
+                        <div>• <span class="text-[#00ff9d]">SysAdmin:</span> Linux Debian/RHEL, Docker, Podman, Systemd, Bash</div>
+                        <div>• <span class="text-[#00e5ff]">Security:</span> pfSense, VLANs, nftables, OpenVPN, Wireshark, Elastic</div>
+                        <div>• <span class="text-purple-400">Dev & Hardware:</span> C / C++, Python, Microcontrôleurs AVR bare-metal</div>
+                    `;
+                    break;
+
+                case "projects":
+                    response.innerHTML = `
+                        <div class="text-[#00e5ff] font-bold">Projets Clés:</div>
+                        <div>1. <strong class="text-white">Homelab Telemetry:</strong> Docker + InfluxDB + Grafana + Telegraf</div>
+                        <div>2. <strong class="text-white">Carte AVR Bare-Metal:</strong> Microcontrôleur ATmega328P programmé en C sans librairies</div>
+                        <div>3. <strong class="text-white">Gestionnaire Stock Python:</strong> App GUI CustomTkinter + SQLite</div>
+                        <div>4. <strong class="text-white">Firewall pfSense:</strong> Segmentation VLAN & VPN sécurisé sous Proxmox</div>
+                    `;
+                    break;
+
+                case "education":
+                    response.innerHTML = `
+                        <div class="text-blue-400 font-bold">Parcours Académique:</div>
+                        <div>• <span class="text-white">Bachelier en Sécurité des Systèmes</span> (Hénallux Namur, 2022 - Présent)</div>
+                        <div>• Focus: Admin Sys, Cryptographie, Pentest, Sockets POSIX, Proxmox</div>
+                        <div>• Communauté: Créateur & Animateur du <span class="text-[#00ff9d]">Maker Hub Hénallux</span></div>
+                    `;
+                    break;
+
+                case "cat cv.txt":
+                    response.innerHTML = `
+                        <div class="text-rose-400 font-bold">=== CV SUMMARY ===</div>
+                        <div>Nom: Antoine Polo</div>
+                        <div>Formation: BAC 3 Sécurité des Systèmes (Hénallux)</div>
+                        <div>Stage: IT Support & Infra @ Lenoir Elec</div>
+                        <div>Compétences: SysAdmin Linux, pfSense, C/C++, Python, Proxmox, Docker</div>
+                        <div>Statut: À la recherche d'une opportunité / stage</div>
+                    `;
+                    break;
+
+                case "contact":
+                    response.innerHTML = `
+                        <div class="text-[#00ff9d] font-bold">Contact:</div>
+                        <div>Email: <a href="mailto:antoine.polo@student.henallux.be" class="underline text-[#00e5ff]">antoine.polo@student.henallux.be</a></div>
+                        <div>Ecole: Hénallux Namur</div>
+                        <div>Localisation: Wallonie, Belgique</div>
+                    `;
+                    break;
+
+                case "clear":
+                    terminalBody.innerHTML = `
+                        <div class="text-slate-400">Terminal effacé. Tapez '<span class="text-[#00ff9d]">help</span>' pour la liste des commandes.</div>
+                    `;
+                    return;
+
+                case "sudo":
+                    response.innerHTML = `
+                        <div class="text-red-400 font-bold">Permission non accordée:</div>
+                        <div>[sudo] password for visitor: <span class="text-slate-500">Nice try! Antoine est l'unique sysadmin ici. 😉</span></div>
+                    `;
+                    break;
+
+                case "matrix":
+                    toggleMatrixEffect();
+                    response.innerHTML = `
+                        <div class="text-[#00ff9d]">Basculement du mode Matrix FX effectué !</div>
+                    `;
+                    break;
+
+                case "":
+                    response.innerHTML = ``;
+                    break;
+
+                default:
+                    response.innerHTML = `
+                        <div class="text-red-400">Commande non reconnue: '${escapeHtml(cmdRaw)}'</div>
+                        <div class="text-slate-500">Tapez '<span class="text-[#00ff9d]">help</span>' pour voir la liste des commandes.</div>
+                    `;
+            }
+
+            terminalBody.appendChild(response);
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        // Terminal Listeners Setup
+        document.addEventListener("DOMContentLoaded", () => {
+            typeLoop();
+
+            const input = document.getElementById("terminal-input");
+            const sendBtn = document.getElementById("terminal-send-btn");
+
+            if (input) {
+                input.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.keyCode === 13) {
+                        e.preventDefault();
+                        const val = input.value;
+                        runCommand(val);
+                        input.value = "";
+                    }
+                });
+            }
+
+            if (sendBtn && input) {
+                sendBtn.addEventListener("click", () => {
+                    const val = input.value;
+                    runCommand(val);
+                    input.value = "";
+                });
+            }
+        });
+
+        const projectData = {
+            homelab: {
+                title: "Stack Télémétrie Homelab (Docker, Grafana, InfluxDB)",
+                content: `
+                    <p class="mb-3">Mise en place d'une infrastructure complète de monitoring et de télémesure au sein d'un serveur dédié sous Debian.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 mb-3">
+                        <li>Conteneurisation via <strong>Docker Compose</strong> pour isoler les services.</li>
+                        <li>Collecte des métriques système avec <strong>Telegraf</strong> (CPU, RAM, Disque, Réseau).</li>
+                        <li>Stockage time-series sur <strong>InfluxDB</strong>.</li>
+                        <li>Création de tableaux de bord dynamiques sur <strong>Grafana</strong> avec alertes de dépassement de seuil.</li>
+                    </ul>
+                    <p class="text-slate-400">Ce projet m'a permis d'approfondir mes connaissances en télémétrie, conteneurs et gestion de ressources sous Linux.</p>
+                `
+            },
+            avr: {
+                title: "Carte Microcontrôleur AVR Bare-Metal en C",
+                content: `
+                    <p class="mb-3">Projet de développement bas niveau consistant à programmer un microcontrôleur ATmega328P directement en C sans utiliser les bibliothèques d'abstraction Arduino.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 mb-3">
+                        <li>Configuration directe des registres (DDR, PORT, PIN).</li>
+                        <li>Gestion des interruptions matérielles (Timers, USART).</li>
+                        <li>Communication via bus SPI et UART pour la transmission série de données.</li>
+                        <li>Compilation avec toolchain AVR-GCC et flash via avrdude.</li>
+                    </ul>
+                    <p class="text-slate-400">Idéal pour comprendre le fonctionnement exact de l'architecture matérielle et la gestion fine de la mémoire.</p>
+                `
+            },
+            inventaire: {
+                title: "Gestionnaire d'Inventaire Composants (Python / CustomTkinter)",
+                content: `
+                    <p class="mb-3">Développement d'une application de bureau intuitive pour gérer le stock de composants électroniques et de matériel informatique.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 mb-3">
+                        <li>Interface graphique moderne réalisée avec <strong>CustomTkinter</strong>.</li>
+                        <li>Base de données relationnelle <strong>SQLite3</strong> avec requêtes optimisées.</li>
+                        <li>Fonctionnalités : recherche rapide par tags, filtres de catégories, suivi de quantité minimale, export CSV.</li>
+                    </ul>
+                `
+            },
+            pfsense: {
+                title: "Architecture Réseau pfSense & OpenVPN sous Proxmox",
+                content: `
+                    <p class="mb-3">Déploiement d'un environnement réseau virtuel sécurisé au sein d'un hyperviseur Proxmox VE.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300 mb-3">
+                        <li>Configuration de <strong>pfSense</strong> en tant que pare-feu principal.</li>
+                        <li>Segmentation réseau par <strong>VLANs</strong> (DMZ, Admin, IoT, Clients).</li>
+                        <li>Mise en place d'un serveur <strong>OpenVPN</strong> avec authentification par certificats PKI.</li>
+                        <li>Regroupement des logs réseau vers un serveur centralisé.</li>
+                    </ul>
+                `
+            }
+        };
+
+        window.openModal = function(key) {
+            const modal = document.getElementById("project-modal");
+            const titleEl = document.getElementById("modal-title");
+            const bodyEl = document.getElementById("modal-body");
+
+            if (modal && titleEl && bodyEl && projectData[key]) {
+                titleEl.textContent = projectData[key].title;
+                bodyEl.innerHTML = projectData[key].content;
+                modal.classList.remove("hidden");
+            }
+        };
+
+        window.closeModal = function() {
+            const modal = document.getElementById("project-modal");
+            if (modal) modal.classList.add("hidden");
+        };
+
+        window.openCVModal = function() {
+            const cvModal = document.getElementById("cv-modal");
+            if (cvModal) cvModal.classList.remove("hidden");
+        };
+
+        window.closeCVModal = function() {
+            const cvModal = document.getElementById("cv-modal");
+            if (cvModal) cvModal.classList.add("hidden");
+        };
+
+        window.handleContactSubmit = function(e) {
+            e.preventDefault();
+            const status = document.getElementById("form-status");
+            if (status) {
+                status.className = "p-3 rounded-xl font-mono text-xs text-center bg-emerald-500/20 text-[#00ff9d] border border-emerald-500/30 block";
+                status.textContent = "✓ Message envoyé avec succès ! Antoine vous répondra sous peu.";
+                document.getElementById("contact-form").reset();
+                setTimeout(() => {
+                    status.className = "hidden";
+                }, 5000);
+            }
+        };
+
+        let matrixActive = true;
+        const canvas = document.getElementById("matrix-canvas");
+        if (canvas) {
+            const ctx = canvas.getContext("2d");
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener("resize", resizeCanvas);
+
+            const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*";
+            const fontSize = 14;
+            let columns = Math.floor(canvas.width / fontSize);
+            let drops = Array(columns).fill(1);
+
+            function drawMatrix() {
+                if (!matrixActive) return;
+                
+                ctx.fillStyle = "rgba(10, 14, 23, 0.08)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = "#00ff9d";
+                ctx.font = fontSize + "px monospace";
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            setInterval(drawMatrix, 35);
+
+            window.toggleMatrixEffect = function() {
+                matrixActive = !matrixActive;
+                if (!matrixActive) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            };
+        }
+    </script>
+</body>
+</html>
